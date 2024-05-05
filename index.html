@@ -16,6 +16,11 @@
       crossorigin="anonymous"
     ></script>
 
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
     <style type="text/tailwindcss">
       @layer utilities {
         .posts .animepost .post-desc .post-eps {
@@ -76,7 +81,7 @@
       </form>
     </div>
     <!-- Content -->
-    <div class="content-wrapper p-[0_5%] md:p-[2.5rem_10%]">
+    <div class="content-wrapper p-[0_5%] md:p-[2.5rem_10%_0_10%]">
       <div class="content">
         <!-- Anime Ongoing -->
         <div class="widget_section">
@@ -84,34 +89,49 @@
             <h1>ONGOING</h1>
             <a href="#">MORE</a>
           </div>
-          <div class="posts">
-            <div class="animepost max-w-none sm:max-w-[415px]">
-              <a href="#" class="poster">
-                <div class="day_update"><span>Minggu</span></div>
-                <i class="bx bx-play-circle play"></i>
-                <div class="img">
-                  <img
-                    src="https://otakudesu.cloud/wp-content/uploads/2024/04/Hibike-Euphonium-Season-3-Subtitle-Indonesia.jpg"
-                    alt="Hibike-Euphonium-Season-3-Subtitle-Indonesia"
-                  />
-                </div>
-              </a>
-              <div class="post-desc">
-                <div class="post-title">
-                  <a href="#">Hibike Euphonium Season 3 </a>
-                </div>
-                <div class="post-eps">
-                  <a href="#">Episode 1</a>
-                  <a href="#">Episode 2</a>
-                  <a href="#">Episode 3</a>
-                  <a href="#">Episode 4</a>
-                  <a href="#">Episode 5</a>
-                  <a href="#">Episode 6</a>
-                  <a href="#">Episode 7</a>
-                  <a href="#">Episode 8</a>
+          <div
+            class="posts"
+            x-data="{ anime: $store.anime, eps: 1 }"
+            x-init="$store.anime.ongoingFetch()"
+          >
+            <template x-for="data in anime.ongoingDatas.slice(0,9)">
+              <div class="animepost max-w-none sm:max-w-[415px]">
+                <a href="#" class="poster">
+                  <div class="day_update">
+                    <span x-text="data.release_day">Minggu</span>
+                  </div>
+                  <i class="bx bx-play-circle play"></i>
+                  <div class="img">
+                    <img
+                      :src="data.poster"
+                      alt="Hibike-Euphonium-Season-3-Subtitle-Indonesia"
+                    />
+                  </div>
+                </a>
+                <div class="post-desc">
+                  <div class="post-title">
+                    <a href="#" x-text="data.title"
+                      >Hibike Euphonium Season 3
+                    </a>
+                  </div>
+                  <div class="post-eps">
+                    <template
+                      x-for="(dataEps,i) in anime.ongoingEpisodesDatas.reverse()"
+                    >
+                      <template
+                        x-for="(eps, j) in dataEps.episodes.slice(0, 6)"
+                      >
+                        <template x-if="dataEps.anime.slug === data.slug">
+                          <a :href="eps.otakudesu_url"
+                            ><span x-text="getEpisodeNumber(eps.slug)"></span
+                          ></a>
+                        </template>
+                      </template>
+                    </template>
+                  </div>
                 </div>
               </div>
-            </div>
+            </template>
           </div>
         </div>
         <!-- Anime Ongoing -->
@@ -148,5 +168,32 @@
       </div>
     </div>
     <!-- Content -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top p-[1rem_5%] md:p-[1rem_10%]">
+        <div class="logo"><h1>AnimeID</h1></div>
+        <div class="social-media">
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="#"><i class="bx bxl-discord-alt"></i></a>
+        </div>
+      </div>
+      <div class="copy p-[0_5%] md:p-[1rem_10%_0_10%_5px]">
+        <div class="menu-items">
+          <ul class="p-[0_5%] sm:p-[1rem_0]">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Diclaimer</a></li>
+            <li><a href="#">Ads</a></li>
+            <li><a href="#">Trakteer</a></li>
+            <li><a href="#">Join Us</a></li>
+          </ul>
+        </div>
+        <strong>Copyright &copy; 2024 AnimeId. All Rights Reserved</strong>
+      </div>
+    </footer>
+    <!-- Footer -->
+
+    <script src="script.js"></script>
   </body>
 </html>

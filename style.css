@@ -38,7 +38,7 @@ body {
   position: relative;
 }
 
-.navbar .logo {
+.logo {
   position: relative;
   height: 100%;
   padding: 10px 20px;
@@ -172,7 +172,7 @@ body {
   position: relative;
   width: 100%;
   min-width: 120px;
-  max-width: 180px;
+  max-width: 150px;
   height: 100%;
   border-radius: 3px;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -200,7 +200,6 @@ body {
 }
 
 .posts .animepost .poster .rating span {
-  /* font-size: 14px; */
   font-size: clamp(0.75rem, 0.5938rem + 0.5vw, 0.875rem);
 }
 
@@ -283,7 +282,9 @@ body {
 }
 
 .posts.batch {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  justify-content: center;
 }
 
 .posts.batch .animepost {
@@ -298,3 +299,67 @@ body {
 }
 
 /* Content */
+
+/* Footer */
+
+footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background2);
+}
+
+footer .logo {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+footer .social-media {
+  display: flex;
+  gap: 10px;
+}
+
+footer .social-media a {
+  font-size: 18px;
+  transition: 0.2s ease-in-out;
+}
+
+footer .social-media a:hover {
+  transform: scale(1.1);
+}
+
+footer .copy {
+  margin-top: 8px;
+  padding: 10px 0;
+  display: grid;
+  gap: 15px 0;
+  place-items: center;
+  text-align: center;
+}
+
+footer .copy .menu-items ul {
+  display: flex;
+  gap: 20px 10px;
+  flex-wrap: wrap;
+}
+
+footer .copy .menu-items ul a {
+  background: var(--background3);
+  padding: 6px 18px;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+}
+
+footer .copy .menu-items ul a:hover {
+  background: var(--primary);
+}
+
+footer strong {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Footer */
