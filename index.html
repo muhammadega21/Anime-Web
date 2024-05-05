@@ -119,7 +119,7 @@
                       x-for="(dataEps,i) in anime.ongoingEpisodesDatas.reverse()"
                     >
                       <template
-                        x-for="(eps, j) in dataEps.episodes.slice(0, 6)"
+                        x-for="(eps, j) in dataEps.episodes.slice(0, 4)"
                       >
                         <template x-if="dataEps.anime.slug === data.slug">
                           <a :href="eps.otakudesu_url"

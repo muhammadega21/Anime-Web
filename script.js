@@ -24,8 +24,7 @@ document.addEventListener("alpine:init", () => {
           );
 
           Promise.all(episodePromises).then((episodesData) => {
-            this.ongoingEpisodesDatas = episodesData;
-            console.log(episodesData);
+            this.ongoingEpisodesDatas = episodesData.slice(0, 9);
           });
         });
     },

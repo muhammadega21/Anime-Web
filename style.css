@@ -165,7 +165,7 @@ body {
   gap: 0 10px;
   width: 100%;
   max-height: 250px;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .posts .animepost .poster {
@@ -246,6 +246,7 @@ body {
   font-size: 15px;
   font-weight: 500;
   max-width: 200px;
+  min-width: 150px;
   width: 100%;
   -webkit-line-clamp: 2;
   overflow: hidden;
@@ -341,6 +342,7 @@ footer .copy {
 
 footer .copy .menu-items ul {
   display: flex;
+  justify-content: center;
   gap: 20px 10px;
   flex-wrap: wrap;
 }
