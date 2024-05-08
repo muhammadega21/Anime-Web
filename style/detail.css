@@ -1,0 +1,84 @@
+/* Detail */
+
+.detail {
+  position: relative;
+}
+
+.detail .banner {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.detail .banner {
+  height: 300px;
+  overflow: hidden;
+  background: #2f303e;
+}
+
+.detail .banner img {
+  width: 100%;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  filter: blur(15px) brightness(0.5) contrast(1);
+}
+
+.detail-content {
+  position: relative;
+  top: 8rem;
+  display: flex;
+  gap: 0 20px;
+}
+
+.detail-content .left {
+  width: 100%;
+}
+
+.detail-content .left .poster {
+  width: 100%;
+  display: flex;
+  gap: 0 20px;
+}
+
+.detail-content .left .img {
+  width: 280px;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.detail-content .left .img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detail-content .left .title {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.detail-content .left .title h1 {
+  width: 100%;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.detail-content .left .title h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+/* Detail */
